@@ -1,0 +1,24 @@
+{
+  "name": "project-1-1819",
+  "version": "1.0.0",
+  "description": "## Globale Idee",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JimvandeVen/project-1-1819.git"
+  },
+  "author": "Jim van de Ven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JimvandeVen/project-1-1819/issues"
+  },
+  "homepage": "https://github.com/JimvandeVen/project-1-1819#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "fs-extra": "^7.0.1",
+    "oba-wrapper": "github:maanlamp/OBA-wrapper"
+  }
+}
