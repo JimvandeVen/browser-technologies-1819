@@ -9,7 +9,7 @@ let data = [];
 (async () => {
   addLoading();
   const iterator = await api.createIterator(
-    "search/*&facet=Type(Activiteiten){20}"
+    "search/*&facet=Type(Activiteiten){1000}"
   );
   for await (const response of iterator) {
     data.push(...response);

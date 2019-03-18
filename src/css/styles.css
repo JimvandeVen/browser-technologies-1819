@@ -143,20 +143,15 @@ img{
   }
 }
 
-.filters{
-
-}
-
-
 form{
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;;
-
+  flex-wrap: wrap;
 }
 
 input{
-  display: none;
+  position: fixed;
+  left: -100vw
 }
 
 label{
@@ -175,8 +170,12 @@ label:hover{
   border: solid #8B2E26;
 }
 
+input:focus + label{
+  border: solid #8B2E26;
+}
+
 .selected{
-  color: white;
-  background-color: #8B2E26;
+  color: black;
+  background-color: white;
   border: solid #8B2E26;
 }
