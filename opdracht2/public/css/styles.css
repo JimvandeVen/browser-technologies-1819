@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fjalla One", "Open Sans", sans-serif;
+}
+
+header{
+    padding: 1em;
+    text-align: center;
+    background-color: #DD9632;
+}
+
+section{
+    margin: 1em;
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 1em;
+}
+
+h3{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.login {
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.login label{
+    height: 2em;
+    min-width: 30%;
+}
+
+.login input{
+    text-align: center;
+    height: 2em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    min-width: 60%;
+    border: none;
+    background-color: #e8f0fe;
+
+}
+
+.login .formButton{
+    border: none;
+    height: 2em;
+    border-radius: 5px;
+    width: 100%;
+    justify-self: right;
+}
+
+.register {
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.register input{
+    height: 2em;
+    margin-right: 2em;
+    margin-left: .5em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    border: none;
+    background-color: #e8f0fe;
+    min-width: 40%;
+    color: black;
+}
+
+.register label{
+    height: 2em;
+    min-width: 35%;
+}
+
+.register .formButton{
+    border: none;
+    height: 2em;
+    border-radius: 5px;
+    width: 100%;
+    justify-self: right;
+}
+
+.survey{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.survey h3{
+    min-width: 100%;
+}
+
+.survey label{
+    margin-bottom: 1em;
+    margin-right: 1em;
+    min-width: 90%;
+}
+
+.survey input{
+    opacity: 0;
+}
+
+.survey input:focus + label{
+    border: .1em solid black;
+}
+
+
+.survey input:checked + label{
+    background-color: #DD9632;
+}

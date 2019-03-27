@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <title>Survey Says</title>
+</head>
+
+<body>
+    <header>
+        <h1>Survey Says</h1>
+    </header>
+    <main class="main">
+
+        <section>
+            <a href="/register">Register</a>
+            <h3>Log in to start the survey</h3>
+            <form class="login" action="/login" method="post">
+                <label for="email">E-mail adres:</label>
+                <input required name="email" id="email" type="email" placeholder="abc@email.com" class="">
+                <label for="passwordInlog">Password:</label>
+                <input required name="password" id="passwordInlog" type="password" placeholder="wachtwoord" class="">
+                <input type="submit" value="Login" class="formButton" id="inloggenSubmit">
+            </form>
+        </section>
+    </main>
+</body>
