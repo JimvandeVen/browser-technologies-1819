@@ -6,121 +6,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-    <title>Survey Says</title>
+    <title>Are you an alcololic?</title>
 </head>
 
 <body class="body">
     <header>
-        <h1>Survey Says</h1>
+        <h1>Are you an alcololic?</h1>
     </header>
     <main class="main">
 
-        <section class="">
-            <h2>Are you an alcololic?</h2>
+
+    <h2 class="noJS">First three Questions</h2>
+    <h2 class="JS">Step 1/3</h2>
+    <button class="noJsButton noShow noJS" id="firstButton">Show/hide first three questions</button>
+        <section class="form">
             <form class="survey" action="/surveyOne" method="post">
                 <h3>How many times per week do you drink?</h3>
-                <input type="radio" id="qOneAOne" name="questionOne" value="0">
+                <input type="radio" id="qOneAOne" name="question1" value="0">
                 <label for="qOneAOne">1 or less times a week</label>
                 
-                <input type="radio" id="qOneATwo" name="questionOne" value="5">
+                <input type="radio" id="qOneATwo" name="question1" value="5">
                 <label for="qOneATwo">2-3 times a week</label>
                 
-                <input type="radio" id="qOneAThree" name="questionOne" value="10">
+                <input type="radio" id="qOneAThree" name="question1" value="10">
                 <label for="qOneAThree">4 or more times a week</label>
                 
                 <h3>When you drink, how many beverages do you consume?</h3>
-                <input type="radio" id="qTwoAOne" name="questionTwo" value="0">
+                <input type="radio" id="qTwoAOne" name="question2" value="0">
                 <label for="qTwoAOne">1 or less</label>
                 
-                <input type="radio" id="qTwoATwo" name="questionTwo" value="5">
+                <input type="radio" id="qTwoATwo" name="question2" value="5">
                 <label for="qTwoATwo">2-3</label>
                 
-                <input type="radio" id="qTwoAThree" name="questionTwo" value="10">
+                <input type="radio" id="qTwoAThree" name="question2" value="10">
                 <label for="qTwoAThree">4 or more</label>
-
                 <h3>What kind of alcohol do you usually drink?</h3>
               
-                <input type="radio" id="qThreeAOne" name="questionThree" value="0">
+                <input type="radio" id="qThreeAOne" name="question3" value="0">
                 <label for="qThreeAOne">Light beer or light wine</label>
                 
-                <input type="radio" id="qThreeATwo" name="questionThree" value="5">
+                <input type="radio" id="qThreeATwo" name="question3" value="5">
                 <label for="qThreeATwo">Strong beer or strong wine or liqueur</label>
                 
-                <input type="radio" id="qThreeAThree" name="questionThree" value="10">
+                <input type="radio" id="qThreeAThree" name="question3" value="10">
                 <label for="qThreeAThree">Strong alcoholic drinks</label>
 
-                <input type="submit" value="Next" class="">
+                <input type="submit" value="Submit 3 questions" class="submit JS">
             </form>
-
+        </section>
+        <h2 class="noJS">Second three Questions</h2>
+        <button class="noJsButton noShow noJS" id="secondButton">Show/hide Second three questions</button>
+        <section class="form noJS">
             <form class="survey" action="/surveyTwo" method="post">
                 <h3>How many times per week do you drink Alone?</h3>
-                <input type="radio" id="qFourAOne" name="questionfFour" value="0">
+                <input type="radio" id="qFourAOne" name="question4" value="0">
                 <label for="qFourAOne">1 or less times a week</label>
                 
-                <input type="radio" id="qFourATwo" name="questionfFour" value="5">
+                <input type="radio" id="qFourATwo" name="question4" value="5">
                 <label for="qFourATwo">2-3 times a week</label>
                 
-                <input type="radio" id="qFourAThree" name="questionfFour" value="10">
+                <input type="radio" id="qFourAThree" name="question4" value="10">
                 <label for="qFourAThree">4 or more times a week</label>
                 
                 <h3>When you drink, how many beverages do you consume?</h3>
-                <input type="radio" id="qFiveAOne" name="questionFive" value="0">
+                <input type="radio" id="qFiveAOne" name="question5" value="0">
                 <label for="qFiveAOne">1 or less</label>
                 
-                <input type="radio" id="qFiveATwo" name="questionFive" value="5">
+                <input type="radio" id="qFiveATwo" name="question5" value="5">
                 <label for="qFiveATwo">2-3</label>
                 
-                <input type="radio" id="qFiveAThree" name="questionFive" value="10">
+                <input type="radio" id="qFiveAThree" name="question5" value="10">
                 <label for="qFiveAThree">4 or more</label>
 
                 <h3>What kind of alcohol do you usually drink?</h3>
               
-                <input type="radio" id="qSixAOne" name="questionSix" value="0">
+                <input type="radio" id="qSixAOne" name="question6" value="0">
                 <label for="qSixAOne">Light beer or light wine</label>
                 
-                <input type="radio" id="qSixATwo" name="questionSix" value="5">
+                <input type="radio" id="qSixATwo" name="question6" value="5">
                 <label for="qSixATwo">Strong beer or strong wine or liqueur</label>
                 
-                <input type="radio" id="qSixAThree" name="questionSix" value="10">
+                <input type="radio" id="qSixAThree" name="question6" value="10">
                 <label for="qSixAThree">Strong alcoholic drinks</label>
 
-                <input type="submit" value="Next" class="formButton" id="inloggenSubmit">
+                <input type="submit" value="Submit 3 questions" class="submit JS">
             </form>
-
+        </section>
+        <h2 class="noJS">Third three Questions</h2>
+        <button class="noJsButton noShow noJS" id="thirdButton">Show/hide third three questions</button>
+        <section class="form noJS">
             <form class="survey" action="/surveyThree" method="post">
                 <h3>How many times per week do you drink?</h3>
-                <input type="radio" id="qSevenAOne" name="questionSeven" value="0">
+                <input type="radio" id="qSevenAOne" name="question7" value="0">
                 <label for="qSevenAOne">1 or less times a week</label>
                 
-                <input type="radio" id="qSevenATwo" name="questionSeven" value="5">
+                <input type="radio" id="qSevenATwo" name="question7" value="5">
                 <label for="qSevenATwo">2-3 times a week</label>
                 
-                <input type="radio" id="qSevenAThree" name="questionSeven" value="10">
+                <input type="radio" id="qSevenAThree" name="question7" value="10">
                 <label for="qSevenAThree">4 or more times a week</label>
                 
                 <h3>When you drink, how many beverages do you consume?</h3>
-                <input type="radio" id="qEightAOne" name="questionEight" value="0">
+                <input type="radio" id="qEightAOne" name="question8" value="0">
                 <label for="qEightAOne">1 or less</label>
                 
-                <input type="radio" id="qEightATwo" name="questionEight" value="5">
+                <input type="radio" id="qEightATwo" name="question8" value="5">
                 <label for="qEightATwo">2-3</label>
                 
-                <input type="radio" id="qEightAThree" name="questionEight" value="10">
+                <input type="radio" id="qEightAThree" name="question8" value="10">
                 <label for="qEightAThree">4 or more</label>
 
                 <h3>What kind of alcohol do you usually drink?</h3>
               
-                <input type="radio" id="qNineAOne" name="questionNine" value="0">
+                <input type="radio" id="qNineAOne" name="question9" value="0">
                 <label for="qNineAOne">Light beer or light wine</label>
                 
-                <input type="radio" id="qNineATwo" name="questionNine" value="5">
+                <input type="radio" id="qNineATwo" name="question9" value="5">
                 <label for="qNineATwo">Strong beer or strong wine or liqueur</label>
                 
-                <input type="radio" id="qNineAThree" name="questionNine" value="10">
+                <input type="radio" id="qNineAThree" name="question9" value="10">
                 <label for="qNineAThree">Strong alcoholic drinks</label>
 
-                <input type="submit" value="Next" class="formButton" id="inloggenSubmit">
+                <input type="submit" value="Submit 3 questions" class="submit JS">
             </form>
         </section>
+        <section  class="noJS">
+            <h2>The Answers</h2>
+            <a href="/answer">Are you an alcoholic?</a>
+        </section>
+        
     </main>
+    <script src="js/script.js"></script>
 </body>

@@ -5,10 +5,17 @@
     font-family: "Fjalla One", "Open Sans", sans-serif;
 }
 
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
 header{
+    background:linear-gradient(to bottom, #DD9632 5%, #B07828 100%);
+    background-color:#DD9632;
     padding: 1em;
     text-align: center;
-    background-color: #DD9632;
+    margin-bottom: 1em;
 }
 
 section{
@@ -18,6 +25,7 @@ section{
 
 h2{
     margin-bottom: 1em;
+    text-align: center;
 }
 
 h3{
@@ -103,6 +111,7 @@ h3{
     margin-bottom: 1em;
     margin-right: 1em;
     min-width: 90%;
+    border: .1em solid white;
 }
 
 .survey input{
@@ -113,7 +122,60 @@ h3{
     border: .1em solid black;
 }
 
+.survey label:hover{
+    border: .1em solid black;
+}
+
 
 .survey input:checked + label{
     background-color: #DD9632;
+}
+
+.form{
+    opacity: 1;
+    height: 100%;
+    visibility: visible;
+    transition: all .5s ease-in;
+}
+
+.noShow{
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.survey .submit{
+    opacity: 1;
+}
+
+button, input[type="submit"], a {
+    align-self: center;
+	box-shadow: 0px 10px 14px -7px #DD9632;
+	background:linear-gradient(to bottom, #DD9632 5%, #B07828 100%);
+    background-color:#DD9632;
+    border: none;
+	border-radius:8px;
+	cursor:pointer;
+	font-size:20px;
+	padding:13px 32px;
+    text-decoration:none;
+    color: black;
+}
+button:hover, input[type="submit"]:hover, a:hover {
+	background:linear-gradient(to bottom, #B07828 5%, #DD9632 100%);
+    background-color:#DD9632;
+    border: none;
+}
+button:active, input[type="submit"]:active, a:active {
+    border: none;
+	position:relative;
+	top:1px;
+}
+
+a{
+    margin-bottom: 4em;
+}
+
+.noJS{
+    display: none;
 }

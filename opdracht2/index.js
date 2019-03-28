@@ -35,44 +35,49 @@ console.log("listening on port 8888");
 app.get("/", index);
 app.get("/register", registerForm);
 app.get("/survey", survey);
+app.get("/survey2", survey2)
+app.get("/survey3", survey3)
+app.get("/answer", answer);
 app.post("/profilePost", register)
 app.post("/login", login)
+app.post("/jsSurvey", addAllAnswers)
 app.post("/surveyOne", addAnswerOne)
 app.post("/surveyTwo", addAnswerTwo)
 app.post("/surveyThree", addAnswerThree)
 
+
 function index(req, res) {
-  let result = {
-    errors: [],
-    data: undefined
-  };
-
-  res.render("index.ejs", Object.assign({}, result));
-}
-
-function registerForm(req, res){
-  let result = {
-    errors: [],
-    data: undefined
-  };
-
-  res.render("register.ejs", Object.assign({}, result));
-}
-
-function survey(req, res){
-     let result = {
-      errors: [],
-      data: undefined
+    let result = {
+        errors: [],
+        data: undefined
     };
-    if (!req.session.user){
+
+    res.render("index.ejs", Object.assign({}, result));
+}
+
+function registerForm(req, res) {
+    let result = {
+        errors: [],
+        data: undefined
+    };
+
+    res.render("register.ejs", Object.assign({}, result));
+}
+
+function survey(req, res) {
+    let result = {
+        errors: [],
+        data: undefined
+    };
+    if (!req.session.user) {
         console.log("geen session")
         res.redirect("/")
     } else {
         res.render("survey.ejs", Object.assign({}, result));
     }
-    
-    
-  }
+
+
+}
 
 function register(req, res, next) {
     const email = req.body.email
@@ -107,7 +112,7 @@ function register(req, res, next) {
     }
 
     function onhash(hash) {
-      connection.query('INSERT INTO users SET ?', {
+        connection.query('INSERT INTO users SET ?', {
             email: email,
             hash: hash,
         }, oninsert)
@@ -116,7 +121,7 @@ function register(req, res, next) {
             if (err) {
                 next(err)
             } else {
-              req.session.user = {
+                req.session.user = {
                     email: email,
                     id: data.insertId
                 }
@@ -162,11 +167,11 @@ function login(req, res, next) {
 
         function onverify(match) {
             if (match) {
-                req.session.user = { 
+                req.session.user = {
                     email: user.email,
                     id: user.userid
                 };
-                  res.redirect('/survey')
+                res.redirect('/survey')
             } else {
                 res.status(401).send('Password incorrect')
             }
@@ -174,60 +179,135 @@ function login(req, res, next) {
     }
 }
 
-function addAnswerOne(req, res){
-    let answer1 = req.body.questionOne
-    let answer2 = req.body.questionTwo
-    let answer3 = req.body.questionThree
+function addAllAnswers(req, res) {
+    let question1 = req.body.question1
+    let question2 = req.body.question2
+    let question3 = req.body.question3
+    let question4 = req.body.question4
+    let question5 = req.body.question5
+    let question6 = req.body.question6
+    let question7 = req.body.question7
+    let question8 = req.body.question8
+    let question9 = req.body.question9
     let userId = req.session.user.id
 
     connection.query('UPDATE users SET ? WHERE userid = ?', [{
-        answer1: answer1,
-        answer2: answer2,
-        answer3: answer3
+        question1: question1,
+        question2: question2,
+        question3: question3,
+        question4: question4,
+        question5: question5,
+        question6: question6,
+        question7: question7,
+        question8: question8,
+        question9: question9,
     }, userId], done)
+
+
 
     function done(err) {
         if (err) {
+            res.status(400).json(err)
             console.error(err)
+        } else {
+            res.json("succes")
         }
     }
 
+
+
 }
- 
-function addAnswerTwo(req, res){
-    let answer4 = req.body.questionFour
-    let answer5 = req.body.questionFive
-    let answer6 = req.body.questionSix
+
+function addAnswerOne(req, res) {
+    let question1 = req.body.question1
+    let question2 = req.body.question2
+    let question3 = req.body.question3
     let userId = req.session.user.id
 
     connection.query('UPDATE users SET ? WHERE userid = ?', [{
-        answer4: answer4,
-        answer5: answer5,
-        answer6: answer6
+        question1: question1,
+        question2: question2,
+        question3: question3
     }, userId], done)
 
     function done(err) {
         if (err) {
             console.error(err)
+        } else {
+            res.redirect("/survey2")
         }
     }
 }
 
-function addAnswerThree(req, res){
-    let answer7 = req.body.questionSeven
-    let answer8 = req.body.questionEight
-    let answer9 = req.body.questionNine
+function survey2(req, res) {
+    res.render("survey2.ejs")
+}
+
+function addAnswerTwo(req, res) {
+    let question4 = req.body.question4
+    let question5 = req.body.question5
+    let question6 = req.body.question6
     let userId = req.session.user.id
 
     connection.query('UPDATE users SET ? WHERE userid = ?', [{
-        answer7: answer7,
-        answer8: answer8,
-        answer9: answer9
+        question4: question4,
+        question5: question5,
+        question6: question6
     }, userId], done)
 
     function done(err) {
         if (err) {
             console.error(err)
+        } else {
+            res.redirect("/survey3")
+        }
+    }
+}
+
+function survey3(req, res) {
+    res.render("survey3.ejs")
+}
+
+function addAnswerThree(req, res) {
+    let question7 = req.body.question7
+    let question8 = req.body.question8
+    let question9 = req.body.question9
+    let userId = req.session.user.id
+
+    connection.query('UPDATE users SET ? WHERE userid = ?', [{
+        question7: question7,
+        question8: question8,
+        question9: question9
+    }, userId], done)
+
+    function done(err) {
+        if (err) {
+            console.error(err)
+        } else {
+            res.redirect("/answer")
+        }
+    }
+}
+
+function answer(req, res) {
+    let userId = req.session.user.id
+
+    connection.query('SELECT question1, question2, question3, question4, question5, question6, question7, question8, question9 FROM users WHERE userid = ?', userId, done)
+
+    function done(err, data) {
+        if (err) {
+            console.log(err)
+        } else {
+            const answers = data[0]
+            let sum = Number(answers.question1) + Number(answers.question2) + Number(answers.question3) + Number(answers.question4) + Number(answers.question5) + Number(answers.question6) + Number(answers.question7) + Number(answers.question8) + Number(answers.question9)
+
+            let result = {
+                errors: [],
+                sum: sum
+            };
+
+            res.render("answer.ejs", Object.assign({}, result));
+
         }
     }
 }
