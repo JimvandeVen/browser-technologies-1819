@@ -18,12 +18,8 @@ This survey is made as part of a course from [@cmda-minor-web 18-19](https://git
     - [Usable](#usable)
     - [Pleasureable](#pleasureable)
   - [Feature detection](#feature-detection)
-    - [HTML](#html)
     - [CSS](#css)
     - [JavaScript](#javascript)
-  - [Audits](#audits)
-- [Wishlist](#withlist)
-- [Sources](#sources)
 - [License](#license)
 
 ## Feature research
@@ -68,7 +64,7 @@ For better design that takes 'no mouse or trackpad' into consideration, you can 
 
 In the wireframes below you can see my general idea for the prototype.
 
-![wireframes](screens/wireframes.jpg)
+![wireframes](screens/wireframes.jpeg)
 
 ### Progressive enhancement
 I started with a simple form that works no matter what. I then add css to make it more usable, then I add javascript to make it pleasurable.
