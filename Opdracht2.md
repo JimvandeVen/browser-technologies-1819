@@ -12,7 +12,7 @@ This survey is made as part of a course from [@cmda-minor-web 18-19](https://git
 - [Feature research](#feature-research)
   - [Colors](#Colors)
   - [No mouse or trackpad](#no-mouse-or-trackpad)
-- [Beatbox Kit](#beatbox-kit)
+- [Survey](#survey)
   - [Progressive enhancement](#progressive-enhancement)
     - [Functional and reliable](#functional-and-reliable)
     - [Usable](#usable)
@@ -79,7 +79,7 @@ If I turn off JS It looks like this. Better but we can add more.
 
 ![usable](screens/usable.png)
 
-#### Pleasurable
+#### Pleasureable
 With everything on it looks like this. We have progressive disclosure!
 
 ![pleasurable](readme-assets/pleasurable.png)
