@@ -163,6 +163,25 @@ var xhr = new XMLHttpRequest();
 xhr.open("POST", "/jsSurvey", true);
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.send(JSON.stringify(data))
+/* alternative */
+if (window.fetch) {
+    console.log("yes")
+    fetch("/jsSurvey", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+} else {
+    console.log("no");
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/jsSurvey", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(data))
+  }
+})
+
 ```
 
 3. forEach() on NodeList
