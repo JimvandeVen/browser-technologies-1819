@@ -180,6 +180,7 @@ function login(req, res, next) {
 }
 
 function addAllAnswers(req, res) {
+    console.log(req.body)
     let question1 = req.body.question1
     let question2 = req.body.question2
     let question3 = req.body.question3

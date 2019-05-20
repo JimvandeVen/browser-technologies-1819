@@ -1,28 +1,29 @@
-const noJS = document.querySelectorAll(".noJS")
-const JS = document.querySelectorAll(".JS")
-const hiddenForms = document.querySelectorAll(".form");
-const noJsButtons = document.querySelectorAll(".noJsButton")
-const firstButton = document.querySelector("#firstButton")
-const secondButton = document.querySelector("#secondButton")
-const thirdButton = document.querySelector("#thirdButton")
+var noJS = document.querySelectorAll(".noJS")
+var JS = document.querySelectorAll(".JS")
+var hiddenForms = document.querySelectorAll(".form");
+var noJsButtons = document.querySelectorAll(".noJsButton")
+var firstButton = document.querySelector("#firstButton")
+var secondButton = document.querySelector("#secondButton")
+var thirdButton = document.querySelector("#thirdButton")
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    hiddenForms.forEach(function (form) {
+
+    Array.prototype.forEach.call(hiddenForms, function (form) {
         form.classList.add("noShow")
     })
 
     console.log(noJsButtons)
 
-    noJsButtons.forEach(function (button) {
+    Array.prototype.forEach.call(noJsButtons, function (button) {
         button.classList.remove("noShow")
     })
 
-    JS.forEach(function (element) {
+    Array.prototype.forEach.call(JS, function (element) {
         element.classList.add("noJS")
     })
 
-    noJS.forEach(function (element) {
+    Array.prototype.forEach.call(noJS, function (element) {
         element.classList.remove("noJS")
     })
 });
@@ -39,21 +40,24 @@ thirdButton.addEventListener("click", function () {
     hiddenForms[2].classList.toggle("noShow")
 })
 
-const form = document.querySelector(".form")
+var forms = document.querySelectorAll(".form")
 
-form.addEventListener("change", function () {
-    let inputs = document.querySelectorAll("input[type=radio]:checked")
-    let data = {}
-    inputs.forEach(function (input) {
-        let question = input.name
-        let value = input.value
-        data[question] = value
-    })
-    fetch("/jsSurvey", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+Array.prototype.forEach.call(forms, function (form) {
+    form.addEventListener("change", function () {
+        var inputs = document.querySelectorAll("input[type=radio]:checked")
+        var data = {}
+        inputs.forEach(function (input) {
+            var question = input.name
+            var value = input.value
+            data[question] = value
+        })
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/jsSurvey", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(data))
     })
 })
+
+
+
