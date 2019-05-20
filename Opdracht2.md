@@ -20,7 +20,7 @@ This survey is made as part of a course from [@cmda-minor-web 18-19](https://git
   - [Feature detection](#feature-detection)
     - [CSS](#css)
     - [JavaScript](#javascript)
-- [License](#license)
+
 
 ## Feature research
 The goal was to research at least two features that are being used on websites and figure out what impact these features have on sites I, and you, know and normally use.
@@ -75,12 +75,12 @@ If I turn off css and JS it looks like this. It works but its not really nice, i
 ![functional](screens/functional.png)
 
 #### Usable
-If I turn off JS It looks like this. Better but we can add more.
+If I turn off JS It looks like this. Because the form is split up into three parts the user only ever loses a maximum of three questions. I also added the current progress in the top of the website. Better but we can add more.
 
 ![usable](screens/usable.png)
 
 #### Pleasureable
-With everything on it looks like this. We have progressive disclosure!
+With everything on it looks like this. The user can open and close different parts of the survey. Which means less clutter. We have progressive disclosure!
 
 ![pleasurable](screens/pleasurable.png)
 
@@ -95,16 +95,88 @@ Flex is supported in most browsers. Only older IE browsers have some issues.
 
 ![usable](screens/flex.png)
 
-2. Others
+2. REM and EM
+
+Both are widely [supported in al browsers](https://caniuse.com/#search=rem), except for really old browser versions, like Internet Explorer 7 and below
+
+```CSS 
+section{
+    margin: 16px; /* fallback */
+    margin: 1em;
+    text-align: center;
+}
+```
+
+3. Gradients
+
+Really [bad support in Safari](https://caniuse.com/#search=css%20gradient), and iOS Safari. 
+
+```CSS
+header{
+    background: #DD9632; /* fallback */
+    background: linear-gradient(to bottom, #DD9632 5%, #B07828 100%);
+}
+```
+
+4. Others
 
 Other css properties that dont need fallbacks are transform, transition en so forth. They only apply to the pleasurable layer and when they dont work, the website still does.
 
 #### JavaScript
 
-ES6
+1. ES6
 
-Usually I write alot of ES6 like arrow functions, const, let etc. For this project I used none of yhose things.
+Usually I write alot of ES6 like arrow functions, const, let etc. For this project I used none of those things. I then checked every line of code to see if there are functionalities in the javascript that don't work in older browsers. These are the functionalities that needed 
 
-## License 
-See the [LICENSE file](https://github.com/Mennauu/browser-technologies-1819/blob/master/LICENSE) for license rights and limitations (MIT).
+```JavaScript
+/* Before */
+const hiddenForms = document.querySelectorAll(".form");
+document.addEventListener("DOMContentLoaded", ()=> {
+  hiddenForms.forEach{ form => {
+    form.classList.add("noShow")
+  })
+})
+/* After */
+var hiddenForms = document.querySelectorAll(".form");
+document.addEventListener("DOMContentLoaded", function () {
+  hiddenForms.forEach(function (form) {
+    form.classList.add("noShow")
+  })
+})
+```
 
+2. fetch()
+
+Fetch() isn't [supported in older versions of modern browsers](https://caniuse.com/#search=fetch) and not at all in Internet Explorer. But fetch is a modern replacement for XMLHttpRequest, so I've rewritten my code into XMLHttpRequests.
+
+```JavaScript
+/* before */
+fetch("/jsSurvey", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+})
+/* after */
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/jsSurvey", true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.send(JSON.stringify(data))
+```
+
+3. forEach() on NodeList
+
+Internet Explorer doesn't support a regular forEach on a NodeList (neither do old versions of modern browsers), which means the entire site breaks on IE 9, 10 and 11 and older browsers. I found a solution on [Stack Overflow](https://stackoverflow.com/questions/13433799/why-doesnt-nodelist-have-foreach).
+
+```JavaScript
+var hiddenForms = document.querySelectorAll(".form");
+/* before */
+hiddenForms.forEach(function (form) {
+  form.classList.add("noShow")
+})
+/* after */
+Array.prototype.forEach.call(hiddenForms, function (form) {
+  form.classList.add("noShow")
+})
+```
