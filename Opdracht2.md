@@ -82,7 +82,7 @@ If I turn off JS It looks like this. Better but we can add more.
 #### Pleasureable
 With everything on it looks like this. We have progressive disclosure!
 
-![pleasurable](readme-assets/pleasurable.png)
+![pleasurable](screens/pleasurable.png)
 
 ### Feature detection
 
