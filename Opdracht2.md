@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     form.classList.add("noShow")
   })
 })
+
 /* After */
 var hiddenForms = document.querySelectorAll(".form");
 document.addEventListener("DOMContentLoaded", function () {
@@ -158,11 +159,13 @@ fetch("/jsSurvey", {
     },
     body: JSON.stringify(data)
 })
+
 /* after */
 var xhr = new XMLHttpRequest();
 xhr.open("POST", "/jsSurvey", true);
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.send(JSON.stringify(data))
+
 /* alternative */
 if (window.fetch) {
     console.log("yes")
@@ -190,10 +193,12 @@ Internet Explorer doesn't support a regular forEach on a NodeList (neither do ol
 
 ```JavaScript
 var hiddenForms = document.querySelectorAll(".form");
+
 /* before */
 hiddenForms.forEach(function (form) {
   form.classList.add("noShow")
 })
+
 /* after */
 Array.prototype.forEach.call(hiddenForms, function (form) {
   form.classList.add("noShow")
